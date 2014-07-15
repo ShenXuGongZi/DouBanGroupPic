@@ -9,10 +9,10 @@ import random
 import shutil
 
 #解决中文报错
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 
-print '.'*20+'开始采集代理'+'.'*20
+print '*'*20+'开始采集代理'+'*'*20
 #采集代理信息
 #加入UA模拟浏览器
 f = open('proxy_list.txt','w')
@@ -61,13 +61,13 @@ open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
 file.close()
 
 #print '*'*50
-print '.'*20+'采集完成'+'.'*20
+print '*'*20+'代理采集完成'+'*'*20
 
 ##########################################################################################3
 
 #HuoQ = 'http://www.douban.com/group/haixiuzu/?ref=sidebar'
 ### 代理模块(全局代理)
-print '*'*50
+print '/'*50
 print '本程序主要采集豆瓣<请不要害羞>小组的图片'
 print '采集的图片在文件夹Doubanimg内.'
 print '代理采集程序没有验证，所以如果不成功请重新运行本程序.'
@@ -89,7 +89,8 @@ urllib2.install_opener(opener)
 #采集本地路径全局变量
 #img_LuJ = raw_input("图片下载路径:".decode('utf-8'))
 #img_LuJ2 = os.path.abspath(img_LuJ)
-Douban_group = raw_input('请输入小组代码:(默认害羞组)[haixiuzu]:')or 'haixiuzu'
+print '请输入小组代码,默认害羞组[haixiuzu]'
+Douban_group = raw_input('请输入小组ID(默认按回车继续):')or 'haixiuzu'
 Douban_group_url = 'http://www.douban.com/group/'
 
 #模块化输出
@@ -133,7 +134,14 @@ def download(topic_page):
             print (imgurl)
     return download_img
 
-page_end = int(raw_input('请输入采集页码数,默认采集[10]页:')or 10)
+print '-'*50
+print '请输入采集页码数,默认采集[10]页'
+page_end = int(raw_input('请输入需要采集的页数(默认按回车继续):')or 10)
+print '-'*50
+print '正在采集图片中，请您耐心等待,程序可能用较长时间'
+print '-'*50
+print '如出现错误，请重新运行'
+print '-'*50
 num_end = page_end*25
 num = 0
 page_num = 1
