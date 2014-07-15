@@ -1,37 +1,42 @@
-# coding=cp936
+# coding=utf-8
 
 import urllib
 import urllib2
 import re
 import time
+import sys
+import os
 import random
 import shutil
 
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
-print '.'*20+'¿ªÊ¼²É¼¯´úÀí'+'.'*20
-
+print '.'*20+'å¼€å§‹é‡‡é›†ä»£ç†'+'.'*20
 f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
 exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
-htmlSource = urllib.urlopen("http://cn-proxy.com/").read()
+proxy_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
+proxyHtml = urllib2.Request(url="http://cn-proxy.com",headers=proxy_ua)
+proxySocket = urllib2.urlopen(proxyHtml)
+htmlSource = proxySocket.read()
+#print htmlSource
 for row in exp1.findall(htmlSource):
    for col in exp2.findall(row)[:2]:
-
     f.write('\n'+col)
-
+    #htmlSource.close()
 f.close()
-
 with open('proxy_list.txt', 'r') as f:
     with open('proxy_list.txt.new', 'w') as g:
         for line in f.readlines():
-            if '·şÎñÆ÷µØÖ·' not in line:
+            if 'æœåŠ¡å™¨åœ°å€' not in line:
                 g.write(line)
 shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
 with open('proxy_list.txt', 'r') as f:
     with open('proxy_list.txt.new', 'w') as g:
         for line in f.readlines():
-            if '¶Ë¿Ú' not in line:
+            if 'ç«¯å£' not in line:
                 g.write(line)
 shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
@@ -45,20 +50,20 @@ for i in range(len(lines)):
         newlines.append(string)
         j=j+2
 
+
 open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
 file.close()
 
-
-print '.'*20+'²É¼¯Íê³É'+'.'*20
+print '.'*20+'é‡‡é›†å®Œæˆ'+'.'*20
 
 ##########################################################################################3
 
 print '*'*50
-print '±¾³ÌĞòÖ÷Òª²É¼¯¶¹°ê<Çë²»Òªº¦Ğß>Ğ¡×éµÄÍ¼Æ¬'
-print '²É¼¯µÄÍ¼Æ¬ÔÚÎÄ¼ş¼ĞDoubanimgÄÚ.'
-print '´úÀí²É¼¯³ÌĞòÃ»ÓĞÑéÖ¤£¬ËùÒÔÈç¹û²»³É¹¦ÇëÖØĞÂÔËĞĞ±¾³ÌĞò.'
+print 'æœ¬ç¨‹åºä¸»è¦é‡‡é›†è±†ç“£<è¯·ä¸è¦å®³ç¾>å°ç»„çš„å›¾ç‰‡'
+print 'é‡‡é›†çš„å›¾ç‰‡åœ¨æ–‡ä»¶å¤¹Doubanimgå†….'
+print 'ä»£ç†é‡‡é›†ç¨‹åºæ²¡æœ‰éªŒè¯ï¼Œæ‰€ä»¥å¦‚æœä¸æˆåŠŸè¯·é‡æ–°è¿è¡Œæœ¬ç¨‹åº.'
 print '#'*50
-print 'By ÉöĞé¹«×Ó'
+print 'By è‚¾è™šå…¬å­'
 print '#'*50
 
 f0=open('proxy_list.txt','r')
@@ -71,7 +76,10 @@ opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
 
 def gethtml2(url2):
-    html2 = urllib2.urlopen(url2).read().decode('utf-8')
+    Douban_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
+    Douban_Html = urllib2.Request(url=(url2),headers=Douban_ua)
+    Douban_Socket = urllib2.urlopen(Douban_Html)
+    html2 = Douban_Socket.read().decode('utf-8')
     return  html2
 
 def gettoimg(html2):
@@ -93,10 +101,12 @@ def download(topic_page):
             download_img = urllib.urlretrieve(imgurl,'Doubanimg/%s.jpg'%img_num)
             time.sleep(1)
             i+=1
-            print (imgurl)
+            print 'Urlåœ°å€:'+(imgurl)+'æœ¬åœ°æ–‡ä»¶åœ¨<Doubanimg>æ–‡ä»¶å¤¹ä¸‹'
     return download_img
 
-page_end = int(input('ÇëÊäÈë²É¼¯Ò³ÂëÊı:'))
+page_end = int(input('è¯·è¾“å…¥é‡‡é›†é¡µç æ•°:'))
+print 'æ­£åœ¨é‡‡é›†å¦¹å­å›¾ç‰‡ä¸­......'
+print 'Winç‰ˆæœ¬é‡‡é›†æœ‰Bugå¦‚é‡å¤±è´¥è¯·é‡æ–°è¿è¡Œ'
 num_end = page_end*25
 num = 0
 page_num = 1
@@ -109,5 +119,5 @@ while num<=num_end:
     page_num+=1
 
 else:
-    print('³ÌĞò²É¼¯Íê³É')
+    print('ç¨‹åºé‡‡é›†å®Œæˆ')
 
