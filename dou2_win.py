@@ -1,34 +1,73 @@
-# coding=cp936   
+# coding=cp936
 
 import urllib
 import urllib2
 import re
 import time
-import sys
-import os
+import random
+import shutil
 
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
+print '.'*20+'开始采集代理'+'.'*20
 
-print '#'*50
+f = open('proxy_list.txt','w')
+exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
+exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
+htmlSource = urllib.urlopen("http://cn-proxy.com/").read()
+for row in exp1.findall(htmlSource):
+   for col in exp2.findall(row)[:2]:
+
+    f.write('\n'+col)
+
+f.close()
+
+with open('proxy_list.txt', 'r') as f:
+    with open('proxy_list.txt.new', 'w') as g:
+        for line in f.readlines():
+            if '服务器地址' not in line:
+                g.write(line)
+shutil.move('proxy_list.txt.new', 'proxy_list.txt')
+
+with open('proxy_list.txt', 'r') as f:
+    with open('proxy_list.txt.new', 'w') as g:
+        for line in f.readlines():
+            if '端口' not in line:
+                g.write(line)
+shutil.move('proxy_list.txt.new', 'proxy_list.txt')
+
+file = open("proxy_list.txt",'r')
+lines = file.readlines()
+newlines = []
+j = 1
+for i in range(len(lines)):
+    if(j!=len(lines)-2):
+        string = lines[j].replace('\n','')+':'+lines[j+1].replace('\n','')
+        newlines.append(string)
+        j=j+2
+
+open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
+file.close()
+
+
+print '.'*20+'采集完成'+'.'*20
+
+##########################################################################################3
+
+print '*'*50
 print '本程序主要采集豆瓣<请不要害羞>小组的图片'
-print '#'*50
-print '采集前需要输入代理服务器地址，这样可以防止被豆瓣屏蔽.'
-print '推荐一个代理地址: http://cn-proxy.com/'
-print '只需要输入服务器地址以及端口号，不需要输入http'
-print '例子:127.0.0.1:8080'
+print '采集的图片在文件夹Doubanimg内.'
+print '代理采集程序没有验证，所以如果不成功请重新运行本程序.'
 print '#'*50
 print 'By 肾虚公子'
 print '#'*50
 
-proxy_input = raw_input("请输入采集代理服务器:")
-proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_input})
+f0=open('proxy_list.txt','r')
+dat0=f0.readlines()
+f0.close()
+proxy_SJ = random.choice(dat0)
+proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_SJ})
 opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
-
-img_LuJ = raw_input("图片下载路径:")
-img_LuJ2 = os.path.abspath(img_LuJ)
 
 def gethtml2(url2):
     html2 = urllib2.urlopen(url2).read().decode('utf-8')
@@ -50,7 +89,7 @@ def download(topic_page):
     for imgurl in imglist:
         img_numlist = re.findall(r'p\d{7}',imgurl)
         for img_num in img_numlist:
-            download_img = urllib.urlretrieve(imgurl,img_LuJ2 + '/%s.jpg'%img_num)
+            download_img = urllib.urlretrieve(imgurl,'Doubanimg/%s.jpg'%img_num)
             time.sleep(1)
             i+=1
             print (imgurl)
@@ -69,4 +108,5 @@ while num<=num_end:
     page_num+=1
 
 else:
-    print("程序采集完成")
+    print('程序采集完成')
+
