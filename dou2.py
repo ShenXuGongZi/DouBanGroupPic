@@ -89,6 +89,8 @@ urllib2.install_opener(opener)
 #采集本地路径全局变量
 #img_LuJ = raw_input("图片下载路径:".decode('utf-8'))
 #img_LuJ2 = os.path.abspath(img_LuJ)
+Douban_group = raw_input('请输入小组代码:(默认害羞组)[haixiuzu]:')or 'haixiuzu'
+Douban_group_url = 'http://www.douban.com/group/'
 
 #模块化输出
 #获取帖子单页html
@@ -131,13 +133,13 @@ def download(topic_page):
             print (imgurl)
     return download_img
 
-page_end = int(input('请输入采集页码数:'))
+page_end = int(raw_input('请输入采集页码数,默认采集[10]页:')or 10)
 num_end = page_end*25
 num = 0
 page_num = 1
 while num<=num_end:
     #获取页面数 从 0 开始
-    html2 = gethtml2('http://www.douban.com/group/haixiuzu/discussion?start=%d'%num)
+    html2 = gethtml2(Douban_group_url+Douban_group+"/discussion?start=%d"%num)
     #抽取下载图片
     topicurl = gettoimg(html2)
     topic_page = gethtml2(topicurl)
