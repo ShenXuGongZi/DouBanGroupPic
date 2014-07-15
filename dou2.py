@@ -5,23 +5,79 @@ import re
 import time
 import sys
 import os
+import random
+import shutil
 
 #解决中文报错
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+print '.'*20+'开始采集代理'+'.'*20
+#采集代理信息
+f = open('proxy_list.txt','w')
+exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
+exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
+htmlSource = urllib.urlopen("http://cn-proxy.com/").read()
+for row in exp1.findall(htmlSource):
+   for col in exp2.findall(row)[:2]:
+    #写入代理信息
+    f.write('\n'+col)
+
+f.close()
+#删除指定字符
+with open('proxy_list.txt', 'r') as f:
+    with open('proxy_list.txt.new', 'w') as g:
+        for line in f.readlines():
+            if '服务器地址' not in line:
+                g.write(line)
+shutil.move('proxy_list.txt.new', 'proxy_list.txt')
+#删除指定字符
+with open('proxy_list.txt', 'r') as f:
+    with open('proxy_list.txt.new', 'w') as g:
+        for line in f.readlines():
+            if '端口' not in line:
+                g.write(line)
+shutil.move('proxy_list.txt.new', 'proxy_list.txt')
+
+#读取文件合并行
+file = open("proxy_list.txt",'r')
+lines = file.readlines() #列出文件所有行
+newlines = [] #新行
+j = 1
+for i in range(len(lines)):
+    if(j!=len(lines)-2):
+        string = lines[j].replace('\n','')+':'+lines[j+1].replace('\n','')
+        newlines.append(string)
+        j=j+2
+
+#print(newlines)
+
+
+open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
+file.close()
+
+#print '*'*50
+print '.'*20+'采集完成'+'.'*20
+
+##########################################################################################3
+
 #HuoQ = 'http://www.douban.com/group/haixiuzu/?ref=sidebar'
 ### 代理模块(全局代理)
-print '#'*50
+print '*'*50
 print '本程序主要采集豆瓣<请不要害羞>小组的图片'
+print '采集的图片在文件夹Doubanimg内.'
 print '#'*50
-print '采集前需要输入代理服务器地址，这样可以防止被豆瓣屏蔽.'
-print '推荐一个代理地址: http://cn-proxy.com/'
-print '只需要输入服务器地址以及端口号，不需要输入http'
-print '例子:127.0.0.1:8080'
+print 'By 肾虚公子'
 print '#'*50
-proxy_input = raw_input('请输入采集代理服务器:')
-proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_input})
+
+#随即选取代理
+f0=open('proxy_list.txt','r')
+dat0=f0.readlines()
+f0.close()
+proxy_SJ = random.choice(dat0)
+#代理
+#proxy_input = raw_input('请输入采集代理服务器:')
+proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_SJ})
 opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
 
@@ -84,3 +140,4 @@ while num<=num_end:
 
 else:
     print('程序采集完成')
+
