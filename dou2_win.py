@@ -4,13 +4,10 @@ import urllib
 import urllib2
 import re
 import time
-import sys
 import os
 import random
 import shutil
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 print '.'*20+'开始采集代理'+'.'*20
 f = open('proxy_list.txt','w')
@@ -26,19 +23,7 @@ for row in exp1.findall(htmlSource):
     f.write('\n'+col)
     #htmlSource.close()
 f.close()
-with open('proxy_list.txt', 'r') as f:
-    with open('proxy_list.txt.new', 'w') as g:
-        for line in f.readlines():
-            if '服务器地址' not in line:
-                g.write(line)
-shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
-with open('proxy_list.txt', 'r') as f:
-    with open('proxy_list.txt.new', 'w') as g:
-        for line in f.readlines():
-            if '端口' not in line:
-                g.write(line)
-shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
 file = open("proxy_list.txt",'r')
 lines = file.readlines()
@@ -101,7 +86,7 @@ def download(topic_page):
             download_img = urllib.urlretrieve(imgurl,'Doubanimg/%s.jpg'%img_num)
             time.sleep(1)
             i+=1
-            print 'Url地址:'+(imgurl)+'本地文件在<Doubanimg>文件夹下'
+            print (imgurl)
     return download_img
 
 page_end = int(input('请输入采集页码数:'))
