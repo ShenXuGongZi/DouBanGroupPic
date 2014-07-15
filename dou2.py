@@ -150,4 +150,3 @@ while num<=num_end:
 
 else:
     print('程序采集完成')
-
