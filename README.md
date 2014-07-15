@@ -4,7 +4,7 @@
 主程序:dou2.py 
 
 Mac/Linux 用户 直接运行 python dou2.py 
-Windows用户请下载压缩包: http://162.244.92.122/DouBanMZ.zip
+Windows用户请下载压缩包: [下载](https://raw.githubusercontent.com/liuhang0077/DouBanGroupPic/master/Win_Client.7z)
 
 Mac/Liunx 用户需要创建 Doubanimg 文件夹  以及  proxy_list.txt 文件然后运行程序即可。
 
