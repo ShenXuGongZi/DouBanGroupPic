@@ -14,15 +14,20 @@ sys.setdefaultencoding('utf-8')
 
 print '.'*20+'开始采集代理'+'.'*20
 #采集代理信息
+#加入UA模拟浏览器
 f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
 exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
-htmlSource = urllib.urlopen("http://cn-proxy.com/").read()
+proxy_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
+proxyHtml = urllib2.Request(url="http://cn-proxy.com",headers=proxy_ua)
+proxySocket = urllib2.urlopen(proxyHtml)
+htmlSource = proxySocket.read()
+#print htmlSource
 for row in exp1.findall(htmlSource):
    for col in exp2.findall(row)[:2]:
     #写入代理信息
     f.write('\n'+col)
-
+    #htmlSource.close()
 f.close()
 #删除指定字符
 with open('proxy_list.txt', 'r') as f:
@@ -51,7 +56,6 @@ for i in range(len(lines)):
         j=j+2
 
 #print(newlines)
-
 
 open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
 file.close()
@@ -89,7 +93,10 @@ urllib2.install_opener(opener)
 #模块化输出
 #获取帖子单页html
 def gethtml2(url2):
-    html2 = urllib2.urlopen(url2).read().decode('utf-8')
+    Douban_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
+    Douban_Html = urllib2.Request(url=(url2),headers=Douban_ua)
+    Douban_Socket = urllib2.urlopen(Douban_Html)
+    html2 = Douban_Socket.read().decode('utf-8')
     return  html2
 
 #抽取图片并下载列表
