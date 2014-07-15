@@ -7,7 +7,6 @@ import time
 import random
 import shutil
 
-
 print '.'*20+'开始采集代理'+'.'*20
 
 f = open('proxy_list.txt','w')
@@ -21,19 +20,19 @@ for row in exp1.findall(htmlSource):
 
 f.close()
 
-with open('proxy_list.txt', 'r') as f:
-    with open('proxy_list.txt.new', 'w') as g:
-        for line in f.readlines():
-            if '服务器地址' not in line:
-                g.write(line)
-shutil.move('proxy_list.txt.new', 'proxy_list.txt')
+#with open('proxy_list.txt', 'r') as f:
+#    with open('proxy_list.txt.new', 'w') as g:
+#        for line in f.readlines():
+#            if '服务器地址' not in line:
+#                g.write(line)
+#shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
-with open('proxy_list.txt', 'r') as f:
-    with open('proxy_list.txt.new', 'w') as g:
-        for line in f.readlines():
-            if '端口' not in line:
-                g.write(line)
-shutil.move('proxy_list.txt.new', 'proxy_list.txt')
+#with open('proxy_list.txt', 'r') as f:
+#    with open('proxy_list.txt.new', 'w') as g:
+#        for line in f.readlines():
+#            if '端口' not in line:
+#                g.write(line)
+#shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
 file = open("proxy_list.txt",'r')
 lines = file.readlines()
@@ -52,11 +51,11 @@ file.close()
 print '.'*20+'采集完成'+'.'*20
 
 ##########################################################################################3
-
 print '*'*50
 print '本程序主要采集豆瓣<请不要害羞>小组的图片'
 print '采集的图片在文件夹Doubanimg内.'
 print '代理采集程序没有验证，所以如果不成功请重新运行本程序.'
+print '本程序在Win下有BUG可能需要多执行几次'
 print '#'*50
 print 'By 肾虚公子'
 print '#'*50
@@ -65,6 +64,8 @@ f0=open('proxy_list.txt','r')
 dat0=f0.readlines()
 f0.close()
 proxy_SJ = random.choice(dat0)
+
+
 proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_SJ})
 opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
@@ -96,6 +97,7 @@ def download(topic_page):
     return download_img
 
 page_end = int(input('请输入采集页码数:'))
+print '页面正在采集中，如遇错误请重新再试'+'.'*50
 num_end = page_end*25
 num = 0
 page_num = 1
