@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48f09495-7bbf-48b1-9fd0-823cc346cfec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dou2_win.py" afterPath="$PROJECT_DIR$/dou2_win.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy_list.txt" afterPath="$PROJECT_DIR$/proxy_list.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Douban.iws" />
@@ -40,8 +39,8 @@
       <file leaf-file-name="dou2_win.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dou2_win.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68457943" vertical-offset="1327" max-vertical-offset="1935">
-              <caret line="108" column="28" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1935">
+              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
               <folding>
                 <element signature="e#16#29#0" expanded="true" />
               </folding>
@@ -407,7 +406,11 @@
       <created>1405452937498</created>
       <updated>1405452937498</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改win版本相关说明">
+      <created>1405453700235</created>
+      <updated>1405453700235</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -473,7 +476,8 @@
     <MESSAGE value="采集，合并文件，读取代理文件，随即选取代理，固定采集目录.程序初步成型" />
     <MESSAGE value="更改代码，并添加说明" />
     <MESSAGE value="修改函数，增加UA模拟" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改函数，增加UA模拟" />
+    <MESSAGE value="修改win版本相关说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改win版本相关说明" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -567,8 +571,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dou2_win.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68457943" vertical-offset="1327" max-vertical-offset="1935">
-          <caret line="108" column="28" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1935">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
           <folding>
             <element signature="e#16#29#0" expanded="true" />
           </folding>

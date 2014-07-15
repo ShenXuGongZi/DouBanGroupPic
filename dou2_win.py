@@ -1,4 +1,4 @@
-# coding=utf-8
+# coding=cp936
 
 import urllib
 import urllib2
@@ -12,7 +12,7 @@ import shutil
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-print '.'*20+'å¼€å§‹é‡‡é›†ä»£ç†'+'.'*20
+print '.'*20+'¿ªÊ¼²É¼¯´úÀí'+'.'*20
 f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
 exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
@@ -29,14 +29,14 @@ f.close()
 with open('proxy_list.txt', 'r') as f:
     with open('proxy_list.txt.new', 'w') as g:
         for line in f.readlines():
-            if 'æœåŠ¡å™¨åœ°å€' not in line:
+            if '·şÎñÆ÷µØÖ·' not in line:
                 g.write(line)
 shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
 with open('proxy_list.txt', 'r') as f:
     with open('proxy_list.txt.new', 'w') as g:
         for line in f.readlines():
-            if 'ç«¯å£' not in line:
+            if '¶Ë¿Ú' not in line:
                 g.write(line)
 shutil.move('proxy_list.txt.new', 'proxy_list.txt')
 
@@ -54,16 +54,16 @@ for i in range(len(lines)):
 open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
 file.close()
 
-print '.'*20+'é‡‡é›†å®Œæˆ'+'.'*20
+print '.'*20+'²É¼¯Íê³É'+'.'*20
 
 ##########################################################################################3
 
 print '*'*50
-print 'æœ¬ç¨‹åºä¸»è¦é‡‡é›†è±†ç“£<è¯·ä¸è¦å®³ç¾>å°ç»„çš„å›¾ç‰‡'
-print 'é‡‡é›†çš„å›¾ç‰‡åœ¨æ–‡ä»¶å¤¹Doubanimgå†….'
-print 'ä»£ç†é‡‡é›†ç¨‹åºæ²¡æœ‰éªŒè¯ï¼Œæ‰€ä»¥å¦‚æœä¸æˆåŠŸè¯·é‡æ–°è¿è¡Œæœ¬ç¨‹åº.'
+print '±¾³ÌĞòÖ÷Òª²É¼¯¶¹°ê<Çë²»Òªº¦Ğß>Ğ¡×éµÄÍ¼Æ¬'
+print '²É¼¯µÄÍ¼Æ¬ÔÚÎÄ¼ş¼ĞDoubanimgÄÚ.'
+print '´úÀí²É¼¯³ÌĞòÃ»ÓĞÑéÖ¤£¬ËùÒÔÈç¹û²»³É¹¦ÇëÖØĞÂÔËĞĞ±¾³ÌĞò.'
 print '#'*50
-print 'By è‚¾è™šå…¬å­'
+print 'By ÉöĞé¹«×Ó'
 print '#'*50
 
 f0=open('proxy_list.txt','r')
@@ -101,12 +101,12 @@ def download(topic_page):
             download_img = urllib.urlretrieve(imgurl,'Doubanimg/%s.jpg'%img_num)
             time.sleep(1)
             i+=1
-            print 'Urlåœ°å€:'+(imgurl)+'æœ¬åœ°æ–‡ä»¶åœ¨<Doubanimg>æ–‡ä»¶å¤¹ä¸‹'
+            print 'UrlµØÖ·:'+(imgurl)+'±¾µØÎÄ¼şÔÚ<Doubanimg>ÎÄ¼ş¼ĞÏÂ'
     return download_img
 
-page_end = int(input('è¯·è¾“å…¥é‡‡é›†é¡µç æ•°:'))
-print 'æ­£åœ¨é‡‡é›†å¦¹å­å›¾ç‰‡ä¸­......'
-print 'Winç‰ˆæœ¬é‡‡é›†æœ‰Bugå¦‚é‡å¤±è´¥è¯·é‡æ–°è¿è¡Œ'
+page_end = int(input('ÇëÊäÈë²É¼¯Ò³ÂëÊı:'))
+print 'ÕıÔÚ²É¼¯ÃÃ×ÓÍ¼Æ¬ÖĞ......'
+print 'Win°æ±¾²É¼¯ÓĞBugÈçÓöÊ§°ÜÇëÖØĞÂÔËĞĞ'
 num_end = page_end*25
 num = 0
 page_num = 1
@@ -119,5 +119,5 @@ while num<=num_end:
     page_num+=1
 
 else:
-    print('ç¨‹åºé‡‡é›†å®Œæˆ')
+    print('³ÌĞò²É¼¯Íê³É')
 
