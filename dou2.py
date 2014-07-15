@@ -26,19 +26,8 @@ opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
 
 #采集本地路径全局变量
-img_LuJ = raw_input("图片下载路径:".decode('utf-8'))
-img_LuJ2 = os.path.abspath(img_LuJ)
-
-#/home/Hang/文档/PythonEX/Doubanimg
-
-#设置UserAgent
-#req = urllib2.Request(HuoQ)
-#req.add_header('User-Agent','Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36')
-#reader = urllib2.urlopen(req)
-
-#输出
-
-#print reader.read()
+#img_LuJ = raw_input("图片下载路径:".decode('utf-8'))
+#img_LuJ2 = os.path.abspath(img_LuJ)
 
 #模块化输出
 #获取帖子单页html
@@ -69,7 +58,10 @@ def download(topic_page):
 #取图片id为文件名
         img_numlist = re.findall(r'p\d{7}',imgurl)
         for img_num in img_numlist:
-            download_img = urllib.urlretrieve(imgurl,img_LuJ2 + '/%s.jpg'%img_num)
+            #获取用户输入路径
+            #download_img = urllib.urlretrieve(imgurl,img_LuJ2 + '/%s.jpg'%img_num)
+            #固定程序路径
+            download_img = urllib.urlretrieve(imgurl,'Doubanimg/%s.jpg'%img_num)
             time.sleep(1)
             i+=1
             print (imgurl)
