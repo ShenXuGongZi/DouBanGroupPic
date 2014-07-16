@@ -19,16 +19,19 @@ f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
 exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
 proxy_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
-proxyHtml = urllib2.Request(url="http://cn-proxy.com",headers=proxy_ua)
+proxyHtml = urllib2.Request(url="http://www.getproxy.jp/cn",headers=proxy_ua)
 proxySocket = urllib2.urlopen(proxyHtml)
 htmlSource = proxySocket.read()
 #print htmlSource
 for row in exp1.findall(htmlSource):
-   for col in exp2.findall(row)[:2]:
+   for col in exp2.findall(row)[:1]:
     #写入代理信息
-    f.write('\n'+col)
+    f.write(col+'\n')
+    #print col
     #htmlSource.close()
 f.close()
+'''
+#针对http://cn-proxy.com/网站所写的一些采集后文件内操作
 #删除指定字符
 with open('proxy_list.txt', 'r') as f:
     with open('proxy_list.txt.new', 'w') as g:
@@ -59,20 +62,16 @@ for i in range(len(lines)):
 
 open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
 file.close()
-
-#print '*'*50
+'''
 print '*'*20+'代理采集完成'+'*'*20
-
 ##########################################################################################3
-
-#HuoQ = 'http://www.douban.com/group/haixiuzu/?ref=sidebar'
 ### 代理模块(全局代理)
 print '/'*50
 print '本程序主要采集豆瓣<请不要害羞>小组的图片'
 print '采集的图片在文件夹Doubanimg内.'
 print '代理采集程序没有验证，所以如果不成功请重新运行本程序.'
 print '#'*50
-print 'By 肾虚公子'
+print '#'*20 + 'By 肾虚公子' + '#'*20
 print '#'*50
 
 #随即选取代理

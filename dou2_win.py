@@ -1,54 +1,32 @@
-# coding=cp936
-
+#-*- coding: cp936 -*
+#cp936
 import urllib
 import urllib2
 import re
 import time
-import os
 import random
-import shutil
 
-
-print '.'*20+'开始采集代理'+'.'*20
+print '*'*20+'开始采集代理'+'*'*20
 f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
 exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
 proxy_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
-proxyHtml = urllib2.Request(url="http://cn-proxy.com",headers=proxy_ua)
+proxyHtml = urllib2.Request(url="http://www.getproxy.jp/cn",headers=proxy_ua)
 proxySocket = urllib2.urlopen(proxyHtml)
 htmlSource = proxySocket.read()
-#print htmlSource
 for row in exp1.findall(htmlSource):
-   for col in exp2.findall(row)[:2]:
-    f.write('\n'+col)
-    #htmlSource.close()
+   for col in exp2.findall(row)[:1]:
+    f.write(col+'\n')
 f.close()
 
-
-file = open("proxy_list.txt",'r')
-lines = file.readlines()
-newlines = []
-j = 1
-for i in range(len(lines)):
-    if(j!=len(lines)-2):
-        string = lines[j].replace('\n','')+':'+lines[j+1].replace('\n','')
-        newlines.append(string)
-        j=j+2
-
-
-open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
-file.close()
-
-print '.'*20+'采集完成'+'.'*20
-
+print '*'*20+'代理采集完成'+'*'*20
 ##########################################################################################3
-
-print '*'*50
+print '/'*50
 print '本程序主要采集豆瓣<请不要害羞>小组的图片'
 print '采集的图片在文件夹Doubanimg内.'
 print '代理采集程序没有验证，所以如果不成功请重新运行本程序.'
 print '#'*50
-print 'By 肾虚公子'
+print '#'*20 + 'By 肾虚公子' + '#'*20
 print '#'*50
 
 f0=open('proxy_list.txt','r')
@@ -59,6 +37,10 @@ proxy_SJ = random.choice(dat0)
 proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_SJ})
 opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
+
+print '请输入小组代码,默认害羞组[haixiuzu]'
+Douban_group = raw_input('请输入小组ID(默认按回车继续):')or 'haixiuzu'
+Douban_group_url = 'http://www.douban.com/group/'
 
 def gethtml2(url2):
     Douban_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
@@ -89,14 +71,19 @@ def download(topic_page):
             print (imgurl)
     return download_img
 
-page_end = int(input('请输入采集页码数:'))
-print '正在采集妹子图片中......'
-print 'Win版本采集有Bug如遇失败请重新运行'
+print '-'*50
+print '请输入采集页码数,默认采集[10]页'
+page_end = int(raw_input('请输入需要采集的页数(默认按回车继续):')or 10)
+print '-'*50
+print '正在采集图片中，请您耐心等待,程序可能用较长时间'
+print '-'*50
+print '如出现错误，请重新运行'
+print '-'*50
 num_end = page_end*25
 num = 0
 page_num = 1
 while num<=num_end:
-    html2 = gethtml2('http://www.douban.com/group/haixiuzu/discussion?start=%d'%num)
+    html2 = gethtml2(Douban_group_url+Douban_group+"/discussion?start=%d"%num)
     topicurl = gettoimg(html2)
     topic_page = gethtml2(topicurl)
     download_img=download(topic_page)
@@ -105,4 +92,3 @@ while num<=num_end:
 
 else:
     print('程序采集完成')
-
