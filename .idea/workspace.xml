@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48f09495-7bbf-48b1-9fd0-823cc346cfec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dou2.py" afterPath="$PROJECT_DIR$/dou2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dou2_win.py" afterPath="$PROJECT_DIR$/dou2_win.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy_list.txt" afterPath="$PROJECT_DIR$/proxy_list.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Douban.iws" />
@@ -32,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/dou2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="2565">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="15" selection-end-column="12" />
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding>
                 <element signature="e#22#35#0" expanded="true" />
               </folding>
@@ -43,8 +41,8 @@
       <file leaf-file-name="dou2_win.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dou2_win.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5257009" vertical-offset="0" max-vertical-offset="1605">
-              <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.7546729" vertical-offset="187" max-vertical-offset="1605">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="e#29#42#0" expanded="true" />
               </folding>
@@ -432,7 +430,11 @@
       <created>1405500594569</created>
       <updated>1405500594569</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="美化程序">
+      <created>1405503584832</created>
+      <updated>1405503584832</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -502,9 +504,9 @@
     <MESSAGE value="修改win版本编码" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;proxy_list.txt&#10;" />
     <MESSAGE value="合并文件,增加功能" />
-    <MESSAGE value="美化程序" />
     <MESSAGE value="修改程序稳定性，美化程序" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改程序稳定性，美化程序" />
+    <MESSAGE value="美化程序" />
+    <option name="LAST_COMMIT_MESSAGE" value="美化程序" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -646,7 +648,7 @@
     <entry file="file://$PROJECT_DIR$/dou2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="2565">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="15" selection-end-column="12" />
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding>
             <element signature="e#22#35#0" expanded="true" />
           </folding>
@@ -655,8 +657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dou2_win.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5257009" vertical-offset="0" max-vertical-offset="1605">
-          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.7546729" vertical-offset="187" max-vertical-offset="1605">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#29#42#0" expanded="true" />
           </folding>

@@ -7,7 +7,7 @@ import time
 import random
 
 print '#'*50
-print '#'*2 + '\t\t\t\t豆瓣小组采集器\t\t\t\t\t'+'#'*2
+print '#'*2 + '\t豆瓣小组采集器'
 print '#'*50
 print '*'*20+'开始采集代理'+'*'*20
 f = open('proxy_list.txt','w')
@@ -25,8 +25,8 @@ f.close()
 print '*'*20+'代理采集完成'+'*'*20
 ##########################################################################################3
 print '#'*50
-print '#'*2 + '\t\t\t\t肾虚公子 亲情制作\t\t\t\t\t'+'#'*2
-print '#'*2 + '\t\t\t\t主页: Douban.miaowu.asia\t\t\t'+'#'*2
+print '#'*2 + '\t肾虚公子 亲情制作'
+print '#'*2 + '\t主页: Douban.miaowu.asia'
 print '#'*50
 print '说明:本程序可以采集豆瓣任何小组的图片.'
 print '说明:采集的图片在文件夹Doubanimg内.'
@@ -99,4 +99,3 @@ while num<=num_end:
 else:
     print('程序采集完成')
     print '程序采集已经结束感谢您的使用'+'网站:http://Douban.miaowu.asia'
-    print '.'*5000
