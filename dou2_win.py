@@ -1,4 +1,4 @@
-#-*- coding: cp936 -*
+#-*- coding: utf-8 -*
 #cp936
 import urllib
 import urllib2
@@ -6,7 +6,10 @@ import re
 import time
 import random
 
-print '*'*20+'¿ªÊ¼²É¼¯´úÀí'+'*'*20
+print '#'*50
+print '#'*2 + '\t\t\t\tè±†ç“£å°ç»„é‡‡é›†å™¨\t\t\t\t\t'+'#'*2
+print '#'*50
+print '*'*20+'å¼€å§‹é‡‡é›†ä»£ç†'+'*'*20
 f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
 exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
@@ -19,14 +22,15 @@ for row in exp1.findall(htmlSource):
     f.write(col+'\n')
 f.close()
 
-print '*'*20+'´úÀí²É¼¯Íê³É'+'*'*20
+print '*'*20+'ä»£ç†é‡‡é›†å®Œæˆ'+'*'*20
 ##########################################################################################3
-print '/'*50
-print '±¾³ÌĞòÖ÷Òª²É¼¯¶¹°ê<Çë²»Òªº¦Ğß>Ğ¡×éµÄÍ¼Æ¬'
-print '²É¼¯µÄÍ¼Æ¬ÔÚÎÄ¼ş¼ĞDoubanimgÄÚ.'
-print '´úÀí²É¼¯³ÌĞòÃ»ÓĞÑéÖ¤£¬ËùÒÔÈç¹û²»³É¹¦ÇëÖØĞÂÔËĞĞ±¾³ÌĞò.'
 print '#'*50
-print '#'*20 + 'By ÉöĞé¹«×Ó' + '#'*20
+print '#'*2 + '\t\t\t\tè‚¾è™šå…¬å­ äº²æƒ…åˆ¶ä½œ\t\t\t\t\t'+'#'*2
+print '#'*2 + '\t\t\t\tä¸»é¡µ: Douban.miaowu.asia\t\t\t'+'#'*2
+print '#'*50
+print 'è¯´æ˜:æœ¬ç¨‹åºå¯ä»¥é‡‡é›†è±†ç“£ä»»ä½•å°ç»„çš„å›¾ç‰‡.'
+print 'è¯´æ˜:é‡‡é›†çš„å›¾ç‰‡åœ¨æ–‡ä»¶å¤¹Doubanimgå†….'
+print 'æ³¨æ„:ä»£ç†æ²¡æœ‰éªŒè¯ï¼Œå¦‚æœä¸æˆåŠŸè¯·é‡æ–°è¿è¡Œ.'
 print '#'*50
 
 f0=open('proxy_list.txt','r')
@@ -38,8 +42,10 @@ proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_SJ})
 opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
 
-print 'ÇëÊäÈëĞ¡×é´úÂë,Ä¬ÈÏº¦Ğß×é[haixiuzu]'
-Douban_group = raw_input('ÇëÊäÈëĞ¡×éID(Ä¬ÈÏ°´»Ø³µ¼ÌĞø):')or 'haixiuzu'
+#img_LuJ2 = os.path.abspath(img_LuJ)
+print 'è¯·è¾“å…¥å°ç»„ä»£ç ,é»˜è®¤é‡‡é›†è±†ç“£å®³ç¾ç»„[ID=haixiuzu]'
+print 'å°ç»„IDå°±æ˜¯(http://www.douban.com/group/è¿™é‡Œçš„å­—ç¬¦/)'
+Douban_group = raw_input('è¯·è¾“å…¥å°ç»„ID(é»˜è®¤æŒ‰å›è½¦ç»§ç»­):')or 'haixiuzu'
 Douban_group_url = 'http://www.douban.com/group/'
 
 def gethtml2(url2):
@@ -72,12 +78,12 @@ def download(topic_page):
     return download_img
 
 print '-'*50
-print 'ÇëÊäÈë²É¼¯Ò³ÂëÊı,Ä¬ÈÏ²É¼¯[10]Ò³'
-page_end = int(raw_input('ÇëÊäÈëĞèÒª²É¼¯µÄÒ³Êı(Ä¬ÈÏ°´»Ø³µ¼ÌĞø):')or 10)
+print 'è¯·è¾“å…¥é‡‡é›†é¡µç æ•°,é»˜è®¤é‡‡é›†[10]é¡µ'
+page_end = int(raw_input('è¾“å…¥æ•°å­—å³å¯(é»˜è®¤æŒ‰å›è½¦ç»§ç»­):')or 10)
 print '-'*50
-print 'ÕıÔÚ²É¼¯Í¼Æ¬ÖĞ£¬ÇëÄúÄÍĞÄµÈ´ı,³ÌĞò¿ÉÄÜÓÃ½Ï³¤Ê±¼ä'
+print 'æ­£åœ¨é‡‡é›†å›¾ç‰‡ä¸­ï¼Œè¯·æ‚¨è€å¿ƒç­‰å¾…,ç¨‹åºå¯èƒ½ç”¨è¾ƒé•¿æ—¶é—´'
 print '-'*50
-print 'Èç³öÏÖ´íÎó£¬ÇëÖØĞÂÔËĞĞ'
+print 'å¦‚å‡ºç°é”™è¯¯ï¼Œè¯·é‡æ–°è¿è¡Œ'
 print '-'*50
 num_end = page_end*25
 num = 0
@@ -91,4 +97,6 @@ while num<=num_end:
     page_num+=1
 
 else:
-    print('³ÌĞò²É¼¯Íê³É')
+    print('ç¨‹åºé‡‡é›†å®Œæˆ')
+    print 'ç¨‹åºé‡‡é›†å·²ç»ç»“æŸæ„Ÿè°¢æ‚¨çš„ä½¿ç”¨'+'ç½‘ç«™:http://Douban.miaowu.asia'
+    print '.'*5000
