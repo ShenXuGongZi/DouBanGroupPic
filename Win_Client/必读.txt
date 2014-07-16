@@ -10,5 +10,5 @@
 
 如遇错误重新运行即可。
 
-请保证您本机可以访问 http://cn-proxy.com/
+请保证您本机可以访问 http://www.site-digger.com/html/articles/20110516/proxieslist.html
 
