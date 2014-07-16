@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48f09495-7bbf-48b1-9fd0-823cc346cfec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dou2_win.py" afterPath="$PROJECT_DIR$/dou2_win.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dou2.py" afterPath="$PROJECT_DIR$/dou2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Douban.iws" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dou2.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dou2.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dou2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="2565">
-              <caret line="23" column="99" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="99" />
+            <state vertical-scroll-proportion="0.78313255" vertical-offset="2135" max-vertical-offset="2550">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding>
                 <element signature="e#22#35#0" expanded="true" />
               </folding>
@@ -38,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dou2_win.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dou2_win.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dou2_win.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57831323" vertical-offset="0" max-vertical-offset="1605">
-              <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="1605">
+              <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
               <folding>
                 <element signature="e#29#42#0" expanded="true" />
               </folding>
@@ -108,8 +108,8 @@
         <option value="$PROJECT_DIR$/html/center.css" />
         <option value="$PROJECT_DIR$/html/index.html" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/dou2.py" />
         <option value="$PROJECT_DIR$/dou2_win.py" />
+        <option value="$PROJECT_DIR$/dou2.py" />
       </list>
     </option>
   </component>
@@ -597,7 +597,11 @@
       <created>1405514518777</created>
       <updated>1405514518777</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="修改代理源_win">
+      <created>1405514560387</created>
+      <updated>1405514560387</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -673,7 +677,8 @@
     <MESSAGE value="修改程序稳定性，美化程序" />
     <MESSAGE value="美化程序" />
     <MESSAGE value="修改代理源" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改代理源" />
+    <MESSAGE value="修改代理源_win" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改代理源_win" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -832,22 +837,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dou2.py">
+    <entry file="file://$PROJECT_DIR$/dou2_win.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="2565">
-          <caret line="23" column="99" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="1605">
+          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
           <folding>
-            <element signature="e#22#35#0" expanded="true" />
+            <element signature="e#29#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dou2_win.py">
+    <entry file="file://$PROJECT_DIR$/dou2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57831323" vertical-offset="0" max-vertical-offset="1605">
-          <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.78313255" vertical-offset="2135" max-vertical-offset="2550">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
-            <element signature="e#29#42#0" expanded="true" />
+            <element signature="e#22#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

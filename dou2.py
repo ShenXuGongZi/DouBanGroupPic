@@ -162,4 +162,3 @@ while num<=num_end:
 else:
     print('程序采集完成')
     print '程序采集已经结束感谢您的使用'+'网站:http://Douban.miaowu.asia'
-    print '.'*5000
