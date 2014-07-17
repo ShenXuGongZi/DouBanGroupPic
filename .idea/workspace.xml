@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48f09495-7bbf-48b1-9fd0-823cc346cfec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dou2_win.py" afterPath="$PROJECT_DIR$/dou2_win.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy_list.txt" afterPath="$PROJECT_DIR$/proxy_list.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Douban.iws" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="dou2_win.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dou2_win.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8033981" vertical-offset="389" max-vertical-offset="1845">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3276699" vertical-offset="0" max-vertical-offset="1845">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
               <folding>
                 <element signature="e#29#42#0" expanded="true" />
               </folding>
@@ -480,7 +479,11 @@
       <created>1405587097350</created>
       <updated>1405587097350</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="美化程序">
+      <created>1405587687903</created>
+      <updated>1405587687903</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -554,12 +557,12 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;proxy_list.txt&#10;" />
     <MESSAGE value="合并文件,增加功能" />
     <MESSAGE value="修改程序稳定性，美化程序" />
-    <MESSAGE value="美化程序" />
     <MESSAGE value="修改代理源" />
     <MESSAGE value="修改代理源_win" />
     <MESSAGE value="修改主程序" />
     <MESSAGE value="修改Bug，增加程序执行效率，错误输出，尝试多线程失败！" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改Bug，增加程序执行效率，错误输出，尝试多线程失败！" />
+    <MESSAGE value="美化程序" />
+    <option name="LAST_COMMIT_MESSAGE" value="美化程序" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -923,8 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dou2_win.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8033981" vertical-offset="389" max-vertical-offset="1845">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3276699" vertical-offset="0" max-vertical-offset="1845">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding>
             <element signature="e#29#42#0" expanded="true" />
           </folding>

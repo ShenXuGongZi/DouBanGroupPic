@@ -7,7 +7,7 @@ import time
 import random
 
 print '#'*50
-print '#'*2 + '\t\t\t\t豆瓣小组采集器\t\t\t\t\t'+'#'*2
+print '#'*2 + '\t豆瓣小组采集器'
 print '#'*50
 print '*'*20+'开始采集代理'+'*'*20
 
