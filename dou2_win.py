@@ -7,26 +7,36 @@ import time
 import random
 
 print '#'*50
-print '#'*2 + '\t豆瓣小组采集器'
+print '#'*2 + '\t\t\t\t豆瓣小组采集器\t\t\t\t\t'+'#'*2
 print '#'*50
 print '*'*20+'开始采集代理'+'*'*20
+
 f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
 exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
+
 proxy_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
 proxyHtml = urllib2.Request(url="http://www.site-digger.com/html/articles/20110516/proxieslist.html",headers=proxy_ua)
-proxySocket = urllib2.urlopen(proxyHtml)
-htmlSource = proxySocket.read()
-for row in exp1.findall(htmlSource):
-   for col in exp2.findall(row)[:1]:
-    f.write(col+'\n')
-f.close()
+try:
+    proxySocket = urllib2.urlopen(proxyHtml)
+    htmlSource = proxySocket.read()
+
+except Exception:
+    print '-'*50
+    print '代理程序采集出错！请确认您的网络正常!'
+    print '-'*50
+    raw_input('按回车结束程序:')
+else:
+    for row in exp1.findall(htmlSource):
+       for col in exp2.findall(row)[:1]:
+        f.write(col+'\n')
+    f.close()
 
 print '*'*20+'代理采集完成'+'*'*20
 ##########################################################################################3
 print '#'*50
-print '#'*2 + '\t肾虚公子 亲情制作'
-print '#'*2 + '\t主页: Douban.miaowu.asia'
+print '#'*2 + '\t\t\t\t肾虚公子 亲情制作\t\t\t\t\t'+'#'*2
+print '#'*2 + '\t\t\t\t主页: Douban.miaowu.asia\t\t\t'+'#'*2
 print '#'*50
 print '说明:本程序可以采集豆瓣任何小组的图片.'
 print '说明:采集的图片在文件夹Doubanimg内.'
@@ -36,13 +46,13 @@ print '#'*50
 f0=open('proxy_list.txt','r')
 dat0=f0.readlines()
 f0.close()
+
 proxy_SJ = random.choice(dat0)
 
 proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_SJ})
 opener = urllib2.build_opener(proxy_handler)
 urllib2.install_opener(opener)
 
-#img_LuJ2 = os.path.abspath(img_LuJ)
 print '请输入小组代码,默认采集豆瓣害羞组[ID=haixiuzu]'
 print '小组ID就是(http://www.douban.com/group/这里的字符/)'
 Douban_group = raw_input('请输入小组ID(默认按回车继续):')or 'haixiuzu'
@@ -72,30 +82,37 @@ def download(topic_page):
         img_numlist = re.findall(r'p\d{7}',imgurl)
         for img_num in img_numlist:
             download_img = urllib.urlretrieve(imgurl,'Doubanimg/%s.jpg'%img_num)
-            time.sleep(1)
+            time.sleep(0.5)
             i+=1
             print (imgurl)
     return download_img
 
+
 print '-'*50
-print '请输入采集页码数,默认采集[10]页'
+print '请输入采集帖子数,默认采集10个帖子'
 page_end = int(raw_input('输入数字即可(默认按回车继续):')or 10)
 print '-'*50
-print '正在采集图片中，请您耐心等待,程序可能用较长时间'
+print '正在采集图片中，程序可能用较长时间,此时您可以干点别的，比如喝杯咖啡？'
 print '-'*50
-print '如出现错误，请重新运行'
-print '-'*50
+
 num_end = page_end*25
 num = 0
 page_num = 1
-while num<=num_end:
-    html2 = gethtml2(Douban_group_url+Douban_group+"/discussion?start=%d"%num)
-    topicurl = gettoimg(html2)
-    topic_page = gethtml2(topicurl)
-    download_img=download(topic_page)
-    num = page_num*25
-    page_num+=1
-
+try:
+    while num<=num_end:
+        html2 = gethtml2(Douban_group_url+Douban_group+"/discussion?start=%d"%num)
+        topicurl = gettoimg(html2)
+        topic_page = gethtml2(topicurl)
+        download_img=download(topic_page)
+        num = page_num*25
+        page_num+=1
+except Exception:
+    print '错误：图片下载失败！请检查小组名称是否正确!!请重新运行本程序'
+    print '-'*50
+    raw_input('按回车结束程序:')
 else:
-    print('程序采集完成')
-    print '程序采集已经结束感谢您的使用'+'网站:http://Douban.miaowu.asia'
+    print '#'*20 + '下载完成' + '#'*20
+    print '程序采集已经结束感谢您的使用!'+'网站:http://Douban.miaowu.asia'
+    print '#'*20 + '程序结束' + '#'*20
+    JS = raw_input('按回车结束程序:')
+    print JS

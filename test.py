@@ -1,21 +1,8 @@
-#coding:utf-8
-import os
-import re
-import urllib
-import urllib2
-
-f = open('proxy_list.txt','w')
-exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
-exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
-proxy_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
-proxyHtml = urllib2.Request(url="http://www.site-digger.com/html/articles/20110516/proxieslist.html",headers=proxy_ua)
-proxySocket = urllib2.urlopen(proxyHtml)
-htmlSource = proxySocket.read()
-#print htmlSource
-for row in exp1.findall(htmlSource):
-   for col in exp2.findall(row)[:1]:
-    #写入代理信息
-    #f.write(col+'\n')
-    print col
-    #htmlSource.close()
-f.close()
+# -*- coding: utf-8 -*-   
+from threading import Thread    
+def run_thread(n):    
+        for i in range(n):    
+            print i    
+    
+t1 = Thread(target=run_thread,args=(500000,))#指定目标函数，传入参数，这里参数也是元组
+t1.start()  #启动线程  
