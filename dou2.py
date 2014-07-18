@@ -8,9 +8,9 @@ import os
 import random
 
 print '#'*50
-print '#'*2 + '\t\t\t\t豆瓣小组采集器\t\t\t\t\t'+'#'*2
+print '#'*2 + u'\t\t\t\t豆瓣小组采集器\t\t\t\t\t'+'#'*2
 print '#'*50
-print '*'*20+'开始采集代理'+'*'*20
+print '*'*20+u'开始采集代理'+'*'*20
 #采集代理信息
 f = open('proxy_list.txt','w')
 exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
@@ -68,16 +68,16 @@ else: #成功继续执行
 # open("proxy_list.txt","w").write('%s' % '\n'.join(newlines))
 # file.close()
 
-print '*'*20+'代理采集完成'+'*'*20
+print '*'*20+u'代理采集完成'+'*'*20
 ##########################################################################################3
 ### 代理模块(全局代理)
 print '#'*50
-print '#'*2 + '\t\t\t\t肾虚公子 亲情制作\t\t\t\t\t'+'#'*2
-print '#'*2 + '\t\t\t\t主页: Douban.miaowu.asia\t\t\t'+'#'*2
+print '#'*2 + u'\t\t\t\t肾虚公子 亲情制作\t\t\t\t\t'+'#'*2
+print '#'*2 + u'\t\t\t\t主页: Douban.miaowu.asia\t\t\t'+'#'*2
 print '#'*50
-print '说明:本程序可以采集豆瓣任何小组的图片.'
-print '说明:采集的图片在文件夹Doubanimg内.'
-print '注意:代理没有验证，如果不成功请重新运行.'
+print u'说明:本程序可以采集豆瓣任何小组的图片.'
+print u'说明:采集的图片在文件夹Doubanimg内.'
+print u'注意:代理没有验证，如果不成功请重新运行.'
 print '#'*50
 
 #读取代理文件的每一行
@@ -95,9 +95,10 @@ urllib2.install_opener(opener)
 #采集本地路径全局变量
 #img_LuJ = raw_input("图片下载路径:".decode('utf-8'))
 #img_LuJ2 = os.path.abspath(img_LuJ)
-print '请输入小组代码,默认采集豆瓣害羞组[ID=haixiuzu]'
-print '小组ID就是(http://www.douban.com/group/这里的字符/)'
-Douban_group = raw_input('请输入小组ID(默认按回车继续):')or 'haixiuzu'
+print u'请输入小组代码,默认采集豆瓣害羞组[ID=haixiuzu]'
+print u'小组ID就是(http://www.douban.com/group/这里的字符/)'
+print u'请输入小组ID(默认按回车继续):',
+Douban_group = raw_input('') or 'haixiuzu'
 Douban_group_url = 'http://www.douban.com/group/'
 
 #模块化输出
@@ -143,10 +144,11 @@ def download(topic_page):
 
 
 print '-'*50
-print '请输入采集帖子数,默认采集10个帖子'
-page_end = int(raw_input('输入数字即可(默认按回车继续):')or 10)
+print u'请输入采集帖子数,默认采集10个帖子'
+print u'输入数字即可(默认按回车继续):',
+page_end = int(raw_input('')or 10)
 print '-'*50
-print '正在采集图片中，程序可能用较长时间,此时您可以干点别的，比如喝杯咖啡？'
+print u'正在采集图片中，程序可能用较长时间,此时您可以干点别的，比如喝杯咖啡？'
 print '-'*50
 
 num_end = page_end*25
@@ -164,13 +166,15 @@ try: #判断输出错误
         page_num+=1
     #print('程序采集完成')
 except Exception:
-    print '错误：图片下载失败！请检查小组名称是否正确!!请重新运行本程序'
+    print u'错误：图片下载失败！请检查小组名称是否正确!!请重新运行本程序'
     print '-'*50
-    raw_input('按回车结束程序:')
+    print u'按回车结束程序:',
+    raw_input('')
 else:
-    print '#'*20 + '下载完成' + '#'*20
-    print '程序采集已经结束感谢您的使用!'+'网站:http://Douban.miaowu.asia'
-    print '#'*20 + '程序结束' + '#'*20
-    JS = raw_input('按回车结束程序:')
+    print '#'*20 + u'下载完成' + '#'*20
+    print u'程序采集已经结束感谢您的使用!'+u'网站:http://Douban.miaowu.asia'
+    print '#'*20 + u'程序结束' + '#'*20
+    print u'按回车结束程序:',
+    JS = raw_input('')
     print JS
 
