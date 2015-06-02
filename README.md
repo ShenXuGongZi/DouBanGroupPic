@@ -5,7 +5,9 @@
 
 主程序:dou2.py 
 
-Mac/Liunx 用户需要创建 Doubanimg 文件夹后运行程序(python dou2.py)即可。
+
+
+Mac/Liunx 运行程序(python dou2.py)即可。
 
 Windows用户请下载压缩包: [下载](https://raw.githubusercontent.com/ShenXuGongZi/DouBanGroupPic/master/Win_Client.7z)
 
@@ -19,6 +21,11 @@ Windows用户请下载压缩包: [下载](https://raw.githubusercontent.com/Shen
 
 获取用户组ID方法
     http://www.douban.com/group/264964/ #只需要输入人group/后面的字符 不包括斜杠
+
+##### 2015-6-3 更新
+* 无需用户手动创建文件夹
+* 更新可用性去掉代理采集
+* 优化Windows客户端大小以及文件数量
 
 ##### 2014-7-17 更新
 * 修改程序Bug

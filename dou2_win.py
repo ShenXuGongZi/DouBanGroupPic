@@ -1,61 +1,45 @@
 #-*- coding: utf-8 -*
-#cp936
+# coding=cp936
 import urllib
 import urllib2
 import re
 import time
 import random
+import sys
+import os
+type = sys.getfilesystemencoding()
 
 print '#'*50
-print '#'*2 + '\t豆瓣小组采集器'
+print '#'*2 + '\t\t\t\t豆瓣小组采集器\t\t\t\t\t'.decode('UTF-8').encode('GBK')+'#'*2
 print '#'*50
-print '*'*20+'开始采集代理'+'*'*20
 
-f = open('proxy_list.txt','w')
-exp1 = re.compile("(?isu)<tr[^>]*>(.*?)</tr>")
-exp2 = re.compile("(?isu)<td[^>]*>(.*?)</td>")
+mkmulu = os.path.exists('Doubanimg')
 
-proxy_ua = {'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
-proxyHtml = urllib2.Request(url="http://www.site-digger.com/html/articles/20110516/proxieslist.html",headers=proxy_ua)
-try:
-    proxySocket = urllib2.urlopen(proxyHtml)
-    htmlSource = proxySocket.read()
-
-except Exception:
-    print '-'*50
-    print '代理程序采集出错！请确认您的网络正常!'
-    print '-'*50
-    raw_input('按回车结束程序:')
+if not mkmulu:
+    print '#'*50
+    print '目录创建成功!图片将下载到Doubanimg目录'.decode('UTF-8').encode('GBK')
+    print '#'*50
+    os.mkdir('Doubanimg')
+    # return True
 else:
-    for row in exp1.findall(htmlSource):
-       for col in exp2.findall(row)[:1]:
-        f.write(col+'\n')
-    f.close()
+    print '#'*50
+    print '目录存在,图片下载到Doubanimg目录'.decode('UTF-8').encode('GBK')
+    print '#'*50
+    # return False
 
-print '*'*20+'代理采集完成'+'*'*20
-##########################################################################################3
 print '#'*50
-print '#'*2 + '\t肾虚公子 亲情制作'
-print '#'*2 + '\t主页: Douban.miaowu.asia'
+print '#'*2 + '\t肾虚公子 亲情制作'.decode('UTF-8').encode('GBK') 
+print '#'*2 + '\t主页: Douban.miaowu.asia'.decode('UTF-8').encode('GBK') 
 print '#'*50
-print '说明:本程序可以采集豆瓣任何小组的图片.'
-print '说明:采集的图片在文件夹Doubanimg内.'
-print '注意:代理没有验证，如果不成功请重新运行.'
+print '说明:本程序可以采集豆瓣任何小组的图片.'.decode('UTF-8').encode('GBK') 
+print '说明:采集的图片在文件夹Doubanimg内.'.decode('UTF-8').encode('GBK') 
+print '注意:代理没有验证，如果不成功请重新运行.'.decode('UTF-8').encode('GBK') 
 print '#'*50
 
-f0=open('proxy_list.txt','r')
-dat0=f0.readlines()
-f0.close()
 
-proxy_SJ = random.choice(dat0)
-
-proxy_handler = urllib2.ProxyHandler({'http':'%s'%proxy_SJ})
-opener = urllib2.build_opener(proxy_handler)
-urllib2.install_opener(opener)
-
-print '请输入小组代码,默认采集豆瓣害羞组[ID=haixiuzu]'
-print '小组ID就是(http://www.douban.com/group/这里的字符/)'
-Douban_group = raw_input('请输入小组ID(默认按回车继续):')or 'haixiuzu'
+print '请输入小组代码,默认采集豆瓣害羞组[ID=haixiuzu]'.decode('UTF-8').encode('GBK') 
+print '小组ID就是(http://www.douban.com/group/这里的字符/)'.decode('UTF-8').encode('GBK') 
+Douban_group = raw_input('请输入小组ID(默认按回车继续):'.decode('UTF-8').encode('GBK') )or 'haixiuzu'
 Douban_group_url = 'http://www.douban.com/group/'
 
 def gethtml2(url2):
@@ -89,10 +73,10 @@ def download(topic_page):
 
 
 print '-'*50
-print '请输入采集帖子数,默认采集10个帖子'
-page_end = int(raw_input('输入数字即可(默认按回车继续):')or 10)
+print '请输入采集帖子数,默认采集10个帖子'.decode('UTF-8').encode('GBK') 
+page_end = int(raw_input('输入数字即可(默认按回车继续):'.decode('UTF-8').encode('GBK'))or 10) 
 print '-'*50
-print '正在采集图片中，程序可能用较长时间,此时您可以干点别的，比如喝杯咖啡？'
+print '正在采集图片中，程序可能用较长时间,此时您可以干点别的，比如喝杯咖啡？'.decode('UTF-8').encode('GBK') 
 print '-'*50
 
 num_end = page_end*25
@@ -107,12 +91,12 @@ try:
         num = page_num*25
         page_num+=1
 except Exception:
-    print '错误：图片下载失败！请检查小组名称是否正确!!请重新运行本程序'
+    print '错误：图片下载失败！请检查小组名称是否正确!!请重新运行本程序'.decode('UTF-8').encode('GBK') 
     print '-'*50
-    raw_input('按回车结束程序:')
+    raw_input('按回车结束程序:'.decode('UTF-8').encode('GBK') )
 else:
-    print '#'*20 + '下载完成' + '#'*20
-    print '程序采集已经结束感谢您的使用!'+'网站:http://Douban.miaowu.asia'
-    print '#'*20 + '程序结束' + '#'*20
-    JS = raw_input('按回车结束程序:')
+    print '#'*20 + '下载完成'.decode('UTF-8').encode('GBK')  + '#'*20
+    print '程序采集已经结束感谢您的使用!'+'网站:http://Douban.miaowu.asia'.decode('UTF-8').encode('GBK') 
+    print '#'*20 + '程序结束'.decode('UTF-8').encode('GBK')  + '#'*20
+    JS = raw_input('按回车结束程序:'.decode('UTF-8').encode('GBK') )
     print JS
